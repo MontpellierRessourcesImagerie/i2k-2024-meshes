@@ -9,4 +9,5 @@ def split_components():
     bpy.ops.object.editmode_toggle()
     bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY')
 
-split_components()
+if __name__ == "__main__":
+    split_components()

@@ -23,7 +23,7 @@ def makeSourceName(name):
     return os.path.basename(name).split('.')[0]
 
 
-class AstrocytesContactState(object):
+class AstrocytesContact(object):
     
     def __init__(self):
         self.meshes = None
@@ -416,7 +416,7 @@ def show_in_napari(acs):
 
 
 def run_workflow():
-    acs = AstrocytesContactState()
+    acs = AstrocytesContact()
     target_folder = "/home/benedetti/Downloads/I2K/data/astrocytes"
     target_path = os.path.join(target_folder, "contact-surface.ply")
     acs.open_mesh(target_path)
@@ -441,7 +441,7 @@ def run_workflow():
 
 
 def dump():
-    acs = AstrocytesContactState()
+    acs = AstrocytesContact()
     target_folder = "/home/benedetti/Downloads/I2K/data/"
     target_path = os.path.join(target_folder, "test-holes.ply")
     acs.open_mesh(target_path)

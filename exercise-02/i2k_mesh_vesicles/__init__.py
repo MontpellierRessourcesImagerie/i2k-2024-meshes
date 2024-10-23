@@ -15,6 +15,7 @@ from .spots_to_empties import reset_locations, spots_as_empties
 from .cut_and_close import cut_and_close
 from .closest_nuclei import spot_to_closest_nucleus
 from .filter_by_volume import find_objects_by_volume
+from .process_curvature import process_curvature
 
 ### > Functions call have to be done wrapped in an operator.
 
@@ -92,6 +93,17 @@ class OBJECT_OT_spots_ownership(bpy.types.Operator):
         return {'FINISHED'}
 
 
+class OBJECT_OT_nuclei_curvature(bpy.types.Operator):
+    bl_idname = "object.nuclei_curvature"
+    bl_label = "Nuclei curvature"
+    bl_description = "Process the local vertex curvature of the nuclei"
+
+    def execute(self, context):
+        process_curvature()
+        self.report({'INFO'}, "Produced vertex attribute")
+        return {'FINISHED'}
+
+
 # We make our panel (looking like a tab) in the viewer's side panel 
 # (the one that you can open with N)
 class VIEW3D_PT_vesicles_tools_panel(bpy.types.Panel):
@@ -116,6 +128,7 @@ class VIEW3D_PT_vesicles_tools_panel(bpy.types.Panel):
         
         layout.operator("object.spots_as_empties", text="Spots as empties")
         layout.operator("object.spots_ownership", text="Spots ownership")
+        layout.operator("object.nuclei_curvature", text="Nuclei curvature")
 
 
 # In Blender, you need to register your classes if you want them to be loaded in the pool of operators.
@@ -135,6 +148,7 @@ classes = (
     OBJECT_OT_select_by_volume,
     OBJECT_OT_spots_as_empties,
     OBJECT_OT_spots_ownership,
+    OBJECT_OT_nuclei_curvature,
     VIEW3D_PT_vesicles_tools_panel
 )
 

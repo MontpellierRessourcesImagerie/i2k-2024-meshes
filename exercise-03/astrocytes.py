@@ -1,9 +1,5 @@
 import napari
 import open3d as o3d
-from scipy.spatial import KDTree, Delaunay
-import csv
-from multiprocessing import Pool
-from functools import partial
 import numpy as np
 import os
 import math
@@ -429,30 +425,11 @@ def run_workflow():
     acs.decimate(0.8)
 
     # Exporting mesh as PLY
-    for i, m in enumerate(acs.meshes):
-        o3d.io.write_triangle_mesh(f"/home/benedetti/Downloads/I2K/data/astrocytes/astrocytes-{i}.ply", m)
+    # for i, m in enumerate(acs.meshes):
+    #     o3d.io.write_triangle_mesh(f"/home/benedetti/Downloads/I2K/data/astrocytes/astrocytes-{i}.ply", m)
 
-    # Counting holes
-    # all_holes = acs.process_n_holes()
-    # for holes in all_holes:
-    #     print("Number of holes: ", len(holes))
-    #     print(np.unique([len(hole) for hole in holes]))
     show_in_napari(acs)
 
 
-def dump():
-    acs = AstrocytesContact()
-    target_folder = "/home/benedetti/Downloads/I2K/data/"
-    target_path = os.path.join(target_folder, "test-holes.ply")
-    acs.open_mesh(target_path)
-    
-    all_holes = acs.process_n_holes()
-    for holes in all_holes:
-        print("Number of holes: ", len(holes))
-        print(np.unique([len(hole) for hole in holes]))
-        # for hole in holes:
-        #     print("Hole size: ", len(hole))
-
 if __name__ == "__main__":
     run_workflow()
-    # show_in_napari(acs)

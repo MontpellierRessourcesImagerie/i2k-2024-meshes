@@ -28,13 +28,3 @@ The PDFs explaining what you have to do and the resources (images) are in this r
 ## Note
 
 The second exercise is a valid Blender addon that you can reuse out-of-the-box in an actual project.
-
-## To improve
-
-- [ ] Ajouter dans les énoncés des exercices une explication des notions requises (dot product, cross product, normales, ...)
-- [ ] Donner explicitement la méthode de calcul de la curvature locale dans les diapos.
-- [ ] Expliquer qu'avec des meshes, contrairement aux labels, on est pas contraints à un label par zone dans l'espace.
-- [ ] Évoquer la convexité qu'on peut utiliser comme paramètre pour split les noyaux.
-- [ ] Changer l'exercice 2 pour passer vers un exemple où on cherche de la co-occurence de spots, ça sera plus utile pour une réutilisation.
-- [ ] Parler des approximations des spots par des volumes plus simple (ex: sphères) pour certains calculs.
-- [ ] Changer le calcul du volume pour qu'il soit plus rapide (approximation du volume).
